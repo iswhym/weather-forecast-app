@@ -1,75 +1,45 @@
-# Nuxt 3 Minimal Starter
+# 天気予報アプリ
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 使用フレームワーク
 
-## Setup
+- Nuxt 3.13.0
 
-Make sure to install the dependencies:
+## 使用ライブラリ
+
+- Tailwind CSS
+- Sass
+
+## 申し送り
+
+APIキーは環境変数を参照するようにしています。  
+実行する際は、`/.env`ファイルに`OPEN_WEATHER_MAP_API_KEY`を設定するようお願いいたします。
+
+## セットアップ
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## 開発サーバ
 
-Start the development server on `http://localhost:3000`:
+`http://localhost:3000`で開発サーバを起動します。
 
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## プロダクション用のビルド
 
 ```bash
 # npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+ローカルでプロダクトビルドをプレビューする場合
 
 ```bash
 # npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
