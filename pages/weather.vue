@@ -38,6 +38,7 @@
 
 <script setup lang="ts">
 import { prefectures } from '~/utils/prefectures';
+import { convertTime, groupForecastsByDate } from '~/utils/helpers';
 
 // APIレスポンス型定義
 interface ForecastResponse {
@@ -68,35 +69,6 @@ const breadcrumbs = [
   { name: 'ホーム', path: '/' },
   { name: `${japanesePrefName.value}の天気予報`, path: '/weather/' },
 ];
-
-// 時間変換関数
-const convertTime = (dt: number) => {
-  const date = new Date(dt * 1000);
-  return date.toLocaleString('ja-JP', {
-    timeZone: 'Asia/Tokyo',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-};
-
-// 日付ごとに天気予報をグルーピングする関数
-const groupForecastsByDate = (forecasts: any[]): Record<string, any[]> => {
-  const groupedForecasts: Record<string, any[]> = {};
-
-  for (const forecast of forecasts) {
-    const date = new Date(forecast.dt * 1000).toLocaleDateString('ja-JP', {
-      timeZone: 'Asia/Tokyo',
-    });
-
-    if (!groupedForecasts[date]) {
-      groupedForecasts[date] = [];
-    }
-
-    groupedForecasts[date].push(forecast);
-  }
-
-  return groupedForecasts;
-};
 
 // データ取得
 const { data, error } = await useAsyncData<ForecastResponse>(
