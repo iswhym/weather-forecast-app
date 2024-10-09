@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       openweathermapKey: process.env.OPEN_WEATHER_MAP_API_KEY,
+      weatherApiBase: 'http://api.openweathermap.org/data/2.5',
     }
   }
 })

@@ -74,15 +74,14 @@ const breadcrumbs = [
 const { data, error } = await useAsyncData<ForecastResponse>(
   `weather_${prefecture.value}`,
   async () => {
-    const apiKey = config.public.openweathermapKey;
     const response: ForecastResponse = await $fetch(
-      'http://api.openweathermap.org/data/2.5/forecast',
+      `${config.public.weatherApiBase}/forecast`,
       {
         params: {
           q: prefecture.value,
           units: 'metric',
           lang: 'ja',
-          APPID: apiKey,
+          APPID: config.public.openweathermapKey,
         },
       }
     );
