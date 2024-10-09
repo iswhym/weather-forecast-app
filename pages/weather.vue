@@ -37,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+import { prefectures } from '~/utils/prefectures';
+
 // APIレスポンス型定義
 interface ForecastResponse {
   list: {
@@ -57,13 +59,6 @@ const config = useRuntimeConfig();
 const prefecture: Ref<string> = computed(
   () => <string>route.query.prefecture || 'Tokyo'
 );
-
-const prefectures: Record<string, string> = {
-  Tokyo: '東京',
-  Hyogo: '兵庫',
-  Oita: '大分',
-  Hokkaido: '北海道',
-};
 
 const japanesePrefName: Ref<string> = computed(
   () => prefectures[prefecture.value]
